@@ -1,13 +1,12 @@
 import json
-import os
 import logging
-import tkinter as tk
-from tkinter import ttk, filedialog
-from PIL import Image, ImageTk
+import os
 import threading
-from scanner import scan_directory, load_virus_database, restore_clean_file, check_virus, get_all_files, calculate_hash
-from database import initialize_database
 import time
+from tkinter import filedialog
+
+from database import initialize_database
+from scanner import scan_directory, load_virus_database, restore_clean_file, check_virus, get_all_files, calculate_hash
 
 # Loglama ayarları
 logging.basicConfig(
@@ -149,6 +148,15 @@ def scan_quarantine_and_show_results():
         else:
             results.append({"file_path": file_path, "hash": None, "status": "Error"})
             logging.warning(f"Dosya taranırken hata oluştu: {file_path}")
+
+    # Tarama sonuçlarını JSON dosyasına yazdır
+    try:
+        with open("scan_results.json", "w") as json_file:
+            json.dump(results, json_file, indent=4)
+        logging.info("Tarama sonuçları 'results.json' dosyasına kaydedildi.")
+    except Exception as e:
+        logging.error(f"Sonuçlar kaydedilirken bir hata oluştu: {e}")
+
     root.after(0, lambda: show_scan_results(results))
 
 def show_scan_results(results):
@@ -191,29 +199,53 @@ def view_logs():
 # Raporları görüntüleme fonksiyonu
 def view_reports():
     try:
-        with open("scan_results.json", "r") as file:
-            data = json.load(file)
-    except FileNotFoundError:
-        message = ctk.CTkLabel(root, text="Rapor dosyası bulunamadı.", font=("Poppins", 12))
-        message.pack(pady=10)
-        return
+        # scan_results.json dosyasını oku
+        if os.path.exists("scan_results.json"):
+            with open("scan_results.json", "r") as file:
+                scan_results = json.load(file)
+        else:
+            scan_results = []
 
-    report_window = ctk.CTkToplevel(root)
-    report_window.title("Tarama Raporları")
-    report_window.geometry("600x400")
+        # Yeni bir pencere oluştur
+        report_window = ctk.CTkToplevel(root)
+        report_window.title("Raporlar")
+        report_window.geometry("600x400")
 
-    # Scrollable Frame
-    frame = ctk.CTkScrollableFrame(report_window, width=580, height=350)
-    frame.pack(pady=10, padx=10)
+        # Sonuçları kaydırılabilir bir alanda göster
+        report_frame = ctk.CTkScrollableFrame(report_window, width=580, height=350)
+        report_frame.pack(pady=10, padx=10)
 
-    # Rapor içeriği
-    for i, item in enumerate(data):
-        file_info = f"{i + 1}. {item['file_path']} - {item['status']}"
-        label = ctk.CTkLabel(frame, text=file_info, font=("Poppins", 12), anchor="w")
-        label.pack(fill="x", pady=2)
+        if scan_results:
+            for result in scan_results:
+                status = result.get("status", "Unknown")
+                file_path = result.get("file_path", "Bilinmeyen Dosya")
 
-    close_button = ctk.CTkButton(report_window, text="Kapat", command=report_window.destroy)
-    close_button.pack(pady=10)
+                # Duruma göre renk belirle
+                if status.lower() == "clean":
+                    text_color = "#00FF00"  # Yeşil
+                elif status.lower() == "infected and quarantined":
+                    text_color = "#FF0000"  # Kırmızı
+                elif status.lower()=="clean and restored":
+                    text_color = "#00FF00"
+                elif status.lower()=="infected and deleted":
+                    text_color = "#FF0000"
+                else:
+                    text_color = "#FFFFFF"  # Beyaz
+
+                # Sonuçları etikette göster
+                label = ctk.CTkLabel(report_frame, text=f"{file_path}: {status}", font=("Poppins", 12), anchor="w",
+                                     text_color=text_color)
+                label.pack(fill="x", pady=2)
+        else:
+            label = ctk.CTkLabel(report_frame, text="Herhangi bir tarama sonucu bulunamadı.", font=("Poppins", 12))
+            label.pack(pady=10)
+
+        close_button = ctk.CTkButton(report_window, text="Kapat", command=report_window.destroy)
+        close_button.pack(pady=10)
+
+    except Exception as e:
+        logging.error(f"Raporları görüntülerken hata oluştu: {e}")
+
 
 # Veritabanı ve dizinleri başlatma
 initialize_database()
