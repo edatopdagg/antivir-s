@@ -1,0 +1,217 @@
+[
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.gitattributes",
+        "hash": "dcb240655dcbf79b8706d11c8c2a169c",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\database.py",
+        "hash": "65ec3d15b44aa922209e01b2dc40e4f9",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\desktop.ini",
+        "hash": "70c4fba2f47ce0b05764cacf7c5bbdb2",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\eicar.py",
+        "hash": "987989e94c13af8a99434236c7051fc8",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\gui2.py",
+        "hash": "e5356edfe409246ca33248aab0fe391a",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\scanner.py",
+        "hash": "1eb47728474d14da47f40016761b9f4a",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\scan_results.json",
+        "hash": "a3c40486aaad5fd0fe7cb024602e3896",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\VirusHashDB.db",
+        "hash": "26bc0992f6842d2d9a9590981a20fca7",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\config",
+        "hash": "57cd0bbd282d960456d2a87c398a0028",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\description",
+        "hash": "a0a7c3fff21f2aea3cfa1d0316dd816c",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\HEAD",
+        "hash": "cf7dd3ce51958c5f13fece957cc417fb",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\index",
+        "hash": "acadde1f57757bbc1e0a4baa6db107c8",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\packed-refs",
+        "hash": "c424b3cad1664c071836621648ae02ea",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\applypatch-msg.sample",
+        "hash": "ce562e08d8098926a3862fc6e7905199",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\commit-msg.sample",
+        "hash": "579a3c1e12a1e74a98169175fb913012",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\fsmonitor-watchman.sample",
+        "hash": "a0b2633a2c8e97501610bd3f73da66fc",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\post-update.sample",
+        "hash": "2b7ea5cee3c49ff53d41e00785eb974c",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-applypatch.sample",
+        "hash": "054f9ffb8bfe04a599751cc757226dda",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-commit.sample",
+        "hash": "305eadbbcd6f6d2567e033ad12aabbc4",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-merge-commit.sample",
+        "hash": "39cb268e2a85d436b9eb6f47614c3cbc",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-push.sample",
+        "hash": "2c642152299a94e05ea26eae11993b13",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-rebase.sample",
+        "hash": "56e45f2bcbc8226d2b4200f7c46371bf",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\pre-receive.sample",
+        "hash": "2ad18ec82c20af7b5926ed9cea6aeedd",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\prepare-commit-msg.sample",
+        "hash": "2b5c047bdb474555e1787db32b2d2fc5",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\push-to-checkout.sample",
+        "hash": "c7ab00c7784efeadad3ae9b228d4b4db",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\hooks\\update.sample",
+        "hash": "647ae13c682f7827c22f5fc08a03674e",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\info\\exclude",
+        "hash": "036208b4a1ab4a235d75c181e685e5a3",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\logs\\HEAD",
+        "hash": "c9f79ba58a224ec95f966309efcef996",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\logs\\refs\\heads\\main",
+        "hash": "c9f79ba58a224ec95f966309efcef996",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\logs\\refs\\remotes\\origin\\HEAD",
+        "hash": "c9f79ba58a224ec95f966309efcef996",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\objects\\pack\\pack-a7f86efae416c8fbe1c3ac18bfc5feeb989f2ca4.idx",
+        "hash": "a4eb90ec83ee84330b8d71f343c6529e",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\objects\\pack\\pack-a7f86efae416c8fbe1c3ac18bfc5feeb989f2ca4.pack",
+        "hash": "f488615806b32ba6b99ea6e823f84865",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\refs\\heads\\main",
+        "hash": "c4a34fc9bb81b9195f1b0cf1dfd22289",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.git\\refs\\remotes\\origin\\HEAD",
+        "hash": "98b16e0b650190870f1b40bc8f4aec4e",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\.gitignore",
+        "hash": "9117c65ed9ff083256a86af10ab88d65",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\AntivurusProgram.iml",
+        "hash": "654f7dafbbfa13b1f87372ab7f13522e",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\dataSources.xml",
+        "hash": "eec108d0f2d1aec51ca32635c935ce7c",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\misc.xml",
+        "hash": "bd9b20de6ccc1ef70829fe742bfdca9a",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\modules.xml",
+        "hash": "5a57c8d26a884afa60220c33df2c28ca",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\vcs.xml",
+        "hash": "540f11fa73df11558f990929ccce4df9",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\.idea\\inspectionProfiles\\profiles_settings.xml",
+        "hash": "d045cb0a295127b861c26bf50419ed99",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\__pycache__\\database.cpython-312.pyc",
+        "hash": "2d6afca19ece6f87ca730df29f5e2628",
+        "status": "clean"
+    },
+    {
+        "file_path": "C:/Users/edato/OneDrive/Masa\u00fcst\u00fc/AntivirusProgram\\__pycache__\\scanner.cpython-312.pyc",
+        "hash": "5ea87388ced1deec22da0171213e027f",
+        "status": "clean"
+    }
+]
