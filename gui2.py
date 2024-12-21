@@ -1,5 +1,6 @@
 import json
 import os
+import logging
 import tkinter as tk
 from tkinter import ttk, filedialog
 from PIL import Image, ImageTk
@@ -7,6 +8,14 @@ import threading
 from scanner import scan_directory, load_virus_database, restore_clean_file, check_virus, get_all_files, calculate_hash
 from database import initialize_database
 import time
+
+# Loglama ayarları
+logging.basicConfig(
+    level=logging.INFO,
+    filename='antivirus.log',
+    filemode='a',
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # Modern tasarım için CustomTkinter kullanımı
 try:
@@ -33,8 +42,6 @@ def exit_fullscreen(event=None):
 # Esc tuşuna basıldığında tam ekran modundan çıkışı bağla
 root.bind("<Escape>", exit_fullscreen)
 
-
-
 # Renk paleti ve stil ayarları
 background_color = "#2b2f3a"
 highlight_color = "#3c4150"
@@ -54,12 +61,10 @@ welcome_msg.pack(pady=10)
 time_label = ctk.CTkLabel(root, text="", font=("Poppins", 12))
 time_label.pack(pady=10)
 
-
 def update_time():
     current_time = time.strftime("%Y-%m-%d %H:%M:%S")
     time_label.configure(text=current_time)
     root.after(1000, update_time)
-
 
 update_time()
 
@@ -68,13 +73,11 @@ progress_color = "#008000"
 progress = ctk.CTkProgressBar(root, width=500,progress_color=progress_color, fg_color=highlight_color)
 progress.pack(pady=20)
 
-
 #yeni buton rengi
 button_color = "#008000"
 
 #diğer buton
 button_color2 = "#357EC7"
-
 
 # Tarama işlemleri için butonlar
 button_frame = ctk.CTkFrame(root, fg_color=highlight_color, corner_radius=15)
@@ -94,6 +97,11 @@ btn_view_reports = ctk.CTkButton(root, text="Raporları Görüntüle", command=l
                                   hover_color=button_color2)
 btn_view_reports.pack(pady=10, ipadx=10)
 
+# Logları görüntüleme butonu
+btn_view_logs = ctk.CTkButton(root, text="Logları Göster", command=lambda: threading.Thread(target=view_logs).start(),fg_color=button_color2, 
+                                  hover_color=button_color2)
+btn_view_logs.pack(pady=10, ipadx=10)
+
 # Çıkış butonu
 btn_exit = ctk.CTkButton(root, text="Çıkış", command=root.quit, fg_color="red", hover_color="#E50914")
 btn_exit.pack(pady=20)
@@ -103,28 +111,26 @@ def select_directory():
     directory = filedialog.askdirectory()
     if directory:
         progress.start()
+        logging.info(f"Klasör seçildi: {directory}")
         threading.Thread(target=scan_directory_and_show_results, args=(directory,)).start()
-
 
 def scan_directory_and_show_results(directory):
     results = scan_directory(directory, virus_database, quarantine_directory, output_file="scan_results.json")
     root.after(0, lambda: show_scan_results(results))
 
-
 def scan_entire_computer():
     progress.start()
+    logging.info("Tüm bilgisayar taranıyor...")
     threading.Thread(target=scan_entire_computer_and_show_results).start()
-
 
 def scan_entire_computer_and_show_results():
     results = scan_directory("C:/", virus_database, quarantine_directory, output_file="scan_results.json")
     root.after(0, lambda: show_scan_results(results))
 
-
 def scan_quarantine():
     progress.start()
+    logging.info("Karantina taranıyor...")
     threading.Thread(target=scan_quarantine_and_show_results).start()
-
 
 def scan_quarantine_and_show_results():
     results = []
@@ -135,13 +141,15 @@ def scan_quarantine_and_show_results():
             if is_infected:
                 os.remove(file_path)
                 results.append({"file_path": file_path, "hash": file_hash, "status": "Infected and Deleted"})
+                logging.error(f"Virüs tespit edildi ve silindi: {file_path}")
             else:
                 restore_clean_file(file_path, "./restored_files")
                 results.append({"file_path": file_path, "hash": file_hash, "status": "Clean and Restored"})
+                logging.info(f"Temiz dosya geri yüklendi: {file_path}")
         else:
             results.append({"file_path": file_path, "hash": None, "status": "Error"})
+            logging.warning(f"Dosya taranırken hata oluştu: {file_path}")
     root.after(0, lambda: show_scan_results(results))
-
 
 def show_scan_results(results):
     progress.stop()
@@ -155,6 +163,30 @@ def show_scan_results(results):
     close_button = ctk.CTkButton(results_window, text="Kapat", command=results_window.destroy)
     close_button.pack(pady=10)
 
+# Logları görüntüleme fonksiyonu
+def view_logs():
+    try:
+        log_window = ctk.CTkToplevel(root)
+        log_window.title("Log Kayıtları")
+        log_window.geometry("600x400")
+
+        log_frame = ctk.CTkScrollableFrame(log_window, width=580, height=350)
+        log_frame.pack(pady=10, padx=10)
+
+        if os.path.exists('antivirus.log'):
+            with open('antivirus.log', 'r') as log_file:
+                for line in log_file:
+                    label = ctk.CTkLabel(log_frame, text=line.strip(), font=("Poppins", 12), anchor="w")
+                    label.pack(fill="x", pady=2)
+        else:
+            label = ctk.CTkLabel(log_frame, text="Log dosyası bulunamadı.", font=("Poppins", 12))
+            label.pack(pady=10)
+
+        close_button = ctk.CTkButton(log_window, text="Kapat", command=log_window.destroy)
+        close_button.pack(pady=10)
+
+    except Exception as e:
+        logging.error(f"Logları görüntülerken hata oluştu: {e}")
 
 # Raporları görüntüleme fonksiyonu
 def view_reports():
@@ -182,7 +214,6 @@ def view_reports():
 
     close_button = ctk.CTkButton(report_window, text="Kapat", command=report_window.destroy)
     close_button.pack(pady=10)
-
 
 # Veritabanı ve dizinleri başlatma
 initialize_database()
